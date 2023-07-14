@@ -1,8 +1,13 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
-/* more headers goes there */
 
-/* betty style doc for function main goes there */
+/**
+ *main - this is the main function of the program
+ *it checks if an integer is positif or negatif
+ *
+ * Return: always 0
+ */
 int main(void)
 {
 	int n;
@@ -17,9 +22,9 @@ int main(void)
 	{
 		printf("%d is zero", n);
 	}
-	else 
+	else
 	{
-		printf("%d is negative", n)
+		printf("%d is negative", n);
 	}
 	return (0);
 }
