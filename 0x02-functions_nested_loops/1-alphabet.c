@@ -18,6 +18,6 @@ alpha = alphabets[i];
 _putchar(alpha);
 _putchar('\n');
 }
-return (0);
+
 }
 
