@@ -16,8 +16,7 @@ for (i = 0; i < 26; i++)
 
 alpha = alphabets[i];
 _putchar(alpha);
-_putchar('\n');
 }
-
+_putchar('\n');
 }
 
