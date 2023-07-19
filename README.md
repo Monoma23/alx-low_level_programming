@@ -1,3 +1,1 @@
-# alx-low_level_programming
-C programming 
-This is the nested loops Project
+this is the debugging project 
