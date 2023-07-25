@@ -4,14 +4,16 @@
  * @s: string argument
  * Return: longeur
  */
-int _strlen(char *s) {
-    int longeur = 0;
+int _strlen(char *s)
+{
+int longeur = 0;
 
 
-while (*s != '\0') {
+while (*s != '\0')
+{
 longeur++;
-s++; // Move the pointer to the next character
+s++;
 }
 
-return longeur;
+return (longeur);
 }

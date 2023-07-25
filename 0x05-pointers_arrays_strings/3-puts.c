@@ -8,7 +8,7 @@ void _puts(char *str)
 while (*str != '\0')
 {
 _putchar(*str);
-str++; // Move the pointer to the next char
+str++;
 }
 _putchar('\n');
 }

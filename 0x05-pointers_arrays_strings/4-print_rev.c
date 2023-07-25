@@ -4,7 +4,8 @@
  * @s: string arg
  * return: 0
  */
-void print_rev(char *s) {
+void print_rev(char *s)
+{
 
 char *longuer = s;
 while (*longuer != '\0')
