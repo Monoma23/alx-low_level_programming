@@ -6,22 +6,19 @@
  *
  * Return: void
  */
-char *_strcat(char *dest, char *src) {
+char *_strcat(char *dest, char *src)
+{
 char *longofdest = dest;
-    
 while (*longofdest != '\0')
 {
 longofdest++;
 }
-    
-   
 while (*src != '\0')
 {
 *longofdest = *src;
 longofdest++;
 src++;
 }
-    
 *longofdest = '\0';
-return dest;
+return (dest);
 }
