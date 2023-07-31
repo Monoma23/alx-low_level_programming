@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * print_diagsums - Prints the sum of the two diagonals of a square matr
@@ -16,7 +16,7 @@ somme += a[i * size + i];
 sum2 += a[i * size + (size - i - 1)];
 }
 
-_putchar("Sum of the main diagonal: %d\n", somme);
-_putchar("Sum of the secondary diagonal: %d\n", sum2);
+printf("Sum of the main diagonal: %d\n", somme);
+printf("Sum of the secondary diagonal: %d\n", sum2);
 }
 
