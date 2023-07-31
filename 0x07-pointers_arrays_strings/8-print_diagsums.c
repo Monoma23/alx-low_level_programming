@@ -14,12 +14,10 @@ int sum2 = 0;
 for (int i = 0; i < size; i++)
 {
 somme += a[i * size + i];
-}
-for (i = size - 1; i >= 0; i--)
-{
 sum2 += a[i * size + (size - i - 1)];
 }
-printf("Sum of the main diagonal: %d\n", somme);
-printf("Sum of the secondary diagonal: %d\n", sum2);
-}
 
+printf("%d, %d\n", somme, sum2);
+
+}
+i
