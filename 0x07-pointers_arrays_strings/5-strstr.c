@@ -34,6 +34,6 @@ return (haystack);
 haystack++;
 }
 
-return (NULL);
+return (0);
 }
 
