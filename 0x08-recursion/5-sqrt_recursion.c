@@ -1,44 +1,43 @@
 #include "main.h"
+#include <stdbool.h>
+
 /**
- * _sqrt_recursion - Returns the natural square root of a number.
- * @n: The number for which the square root is calculated.
- * Return: The natural square root of n, or -1
+ * is_divisible - Checks if a number is divisible by any other
+ * @n: The number to be checked.
+ * @divisor: The potential divisor to check.
+ * Return: true if n is divisible by divisor, false otherwise.
  */
-int _sqrt_recursion(int n)
+bool is_divisible(int n, int divisor)
 {
-int min = 0;
-int high = n;
-
-if (n < 0)
+if (divisor == 1)
 {
-return (-1);
+return (false);
 }
 
-if (n == 0 || n == 1)
+if (n % divisor == 0)
 {
-return (n);
+return (true);
 }
 
-
-while (min <= high)
+if (divisor * divisor > n)
 {
-int mid = (min + high) / 2;
-int square = mid * mid;
-
-if (square == n)
-{
-return (mid);
-}
-else if (square < n)
-{
-min = mid + 1;
-}
-else
-{
-high = mid - 1;
-}
+return (false);
 }
 
-return (-1);
+return (is_divisible(n, divisor + 1));
 }
 
+/**
+ * is_prime_number - Checks if the input integer is a prime
+ * @n: The number to be checked.
+ * Return: 1 if n is prime, 0 otherwise.
+ */
+int is_prime_number(int n)
+{
+if (n <= 1)
+{
+return (0);
+}
+
+return (!is_divisible(n, 2));
+}
