@@ -1,4 +1,5 @@
 #include "main.h"
+#include <string.h>
 
 
 /**
@@ -9,7 +10,7 @@
 int is_palindrome(char *s)
 {
 int gauche = 0;
-int droit = _strlen_recursion(s) - 1;
+int droit = strlen(s) - 1;
 
 while (gauche < droit)
 {
