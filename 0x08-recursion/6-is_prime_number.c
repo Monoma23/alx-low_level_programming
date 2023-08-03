@@ -7,12 +7,14 @@
  */
 int is_prime_number(int n)
 {
+int k;
+
 if (n <= 1)
 {
 return (0);
 }
 
-for (int k = 2; k * k <= n; k++)
+for (k = 2; k * k <= n; k++)
 {
 if (n % k == 0)
 {
@@ -22,5 +24,4 @@ return (0);
 
 return (1);
 }
-
 
