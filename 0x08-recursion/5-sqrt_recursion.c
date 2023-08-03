@@ -6,6 +6,9 @@
  */
 int _sqrt_recursion(int n)
 {
+int min = 0;
+int high = n;
+
 if (n < 0)
 {
 return (-1);
@@ -16,8 +19,7 @@ if (n == 0 || n == 1)
 return (n);
 }
 
-int min = 0;
-int high = n;
+
 while (min <= high)
 {
 int mid = (min + high) / 2;
