@@ -9,34 +9,33 @@
  */
 int _atoi(char *s)
 {
-int k, h, n, longueur, f, digt;
-
-k = 0;
-h = 0;
-n = 0;
-longueur = 0;
-f = 0;
-digt = 0;
-while (s[longueur] != '\0')
-longueur++;
-	while (k < longueur && f == 0)
+	int counter, d, n, longueur, f, dig;
+	counter = 0;
+	d = 0;
+	n = 0;
+	longueur = 0;
+	f = 0;
+	dig = 0;
+	while (s[longueur] != '\0')
+		longueur++;
+	while (counter < longueur && f == 0)
 	{
-		if (s[k] == '-')
-			++h;
-
-		if (s[k] >= '0' && s[k] <= '9')
+if (s[counter] == '-')
+			++d;
+		if (s[counter] >= '0' && s[counter] <= '9')
 		{
-			digt = s[k] - '0';
-			if (h % 2)
-				digt = -digt;
-			n = n * 10 + digt;
+			dig = s[counter] - '0';
+			if (d % 2)
+				dig = -dig;
+			n = n * 10 + dig;
 			f = 1;
-			if (s[k + 1] < '0' || s[k + 1] > '9')
+			if (s[counter + 1] < '0' || s[counter + 1] > '9')
 				break;
 			f = 0;
 		}
-		k++;
+		counter++;
 	}
+
 	if (f == 0)
 		return (0);
 	return (n);
@@ -51,7 +50,7 @@ longueur++;
  */
 int main(int argc, char *argv[])
 {
-	int result, nbr1, nbr2;
+	int result, nb1, nb2;
 
 	if (argc < 3 || argc > 3)
 	{
@@ -59,12 +58,12 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	nbr1 = _atoi(argv[1]);
-	nbr2 = _atoi(argv[2]);
-	result = nbr1 * nbr2;
+	nb1 = _atoi(argv[1]);
+	nb2 = _atoi(argv[2]);
+	result = nb1 * nb2;
 
 	printf("%d\n", result);
 
 	return (0);
 }
-k
+
