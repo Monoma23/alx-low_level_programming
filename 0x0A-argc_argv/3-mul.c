@@ -3,46 +3,43 @@
 
 /**
  * _atoi - converts a string to an int
- * @s: string to be convd
+ * @s: string to be convert
  *
- * Return: the int conv from the str
+ * Return: the int converted from the str
  */
 int _atoi(char *s)
 {
-int j, g, m, longueur, f, digit;
-j = 0;
-g = 0;
-m = 0;
+int k, h, n, longueur, f, digt;
+
+k = 0;
+h = 0;
+n = 0;
 longueur = 0;
 f = 0;
-digit = 0;
-
+digt = 0;
 while (s[longueur] != '\0')
 longueur++;
+	while (k < longueur && f == 0)
+	{
+		if (s[k] == '-')
+			++h;
 
-while (j < longueur && f == 0)
-{
-if (s[j] == '-')
-++g;
-
-if (s[j] >= '0' && s[j] <= '9')
-{
-digit = s[j] - '0';
-if (g % 2)
-digit = -digit;
-m = m * 10 + digit;
-f = 1;
-if (s[j + 1] < '0' || s[j + 1] > '9')
-break;
-f = 0;
-}
-j++;
-}
-
-if (f == 0)
-return (0);
-
-return (m);
+		if (s[k] >= '0' && s[k] <= '9')
+		{
+			digt = s[k] - '0';
+			if (h % 2)
+				digt = -digt;
+			n = n * 10 + digt;
+			f = 1;
+			if (s[k + 1] < '0' || s[k + 1] > '9')
+				break;
+			f = 0;
+		}
+		k++;
+	}
+	if (f == 0)
+		return (0);
+	return (n);
 }
 
 /**
@@ -54,17 +51,20 @@ return (m);
  */
 int main(int argc, char *argv[])
 {
-int result, nbr1, nbr2;
+	int result, nbr1, nbr2;
 
-if (argc < 3 || argc > 3)
-{
-printf("Error\m");
-return (1);
+	if (argc < 3 || argc > 3)
+	{
+		printf("Error\n");
+		return (1);
+	}
+
+	nbr1 = _atoi(argv[1]);
+	nbr2 = _atoi(argv[2]);
+	result = nbr1 * nbr2;
+
+	printf("%h\n", result);
+
+	return (0);
 }
 
-nbr1 = _atoi(argv[1]);
-nbr2 = _atoi(argv[2]);
-result = nbr1 *nbr2;
-printf("%g\m", result);
-return (0);
-}
