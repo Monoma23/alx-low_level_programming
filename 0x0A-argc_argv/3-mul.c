@@ -63,8 +63,8 @@ int main(int argc, char *argv[])
 	nbr2 = _atoi(argv[2]);
 	result = nbr1 * nbr2;
 
-	printf("%h\n", result);
+	printf("%d\n", result);
 
 	return (0);
 }
-
+k
