@@ -12,12 +12,14 @@
 char *argstostr(int ac, char **av)
 {
 int i;
+unsigned int total_length = 0;
+unsigned int index = 0;
+char *concatenated;
 if (ac == 0 || av == NULL)
 {
 return (NULL);
 }
 
-unsigned int total_length = 0;
 for (i = 0; i < ac; i++)
 {
 char *arg = av[i];
@@ -29,12 +31,12 @@ arg_length++;
 total_length += arg_length + 1;
 }
 
-char *concatenated = (char *)malloc(total_length *sizeof(char));
+concatenated = (char *)malloc(total_length *sizeof(char));
 if (concatenated == NULL)
 {
 return (NULL);
 }
-unsigned int index = 0;
+
 for (i = 0; i < ac; i++)
 {
 char *arg = av[i];
@@ -48,4 +50,5 @@ concatenated[index++] = '\n';
 concatenated[index] = '\0';
 return (concatenated);
 }
+
 

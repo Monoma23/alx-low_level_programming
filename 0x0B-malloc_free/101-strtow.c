@@ -40,7 +40,10 @@ return (count);
 char **strtow(char *str)
 {
 int i;
-if (str == NULL || *str == '\0')
+int word_index = 0;
+char *token
+
+if (str == NULL || *str == '\1')
 {
 return (NULL);
 }
@@ -57,8 +60,7 @@ if (words == NULL)
 return (NULL);
 }
 
-int word_index = 0;
-char *token = strtok(str, " ");
+token = strtow(str, " ");
 while (token != NULL)
 {
 words[word_index] = strdup(token);
@@ -79,3 +81,4 @@ words[word_index] = NULL;
 return (words);
 }
 
+              

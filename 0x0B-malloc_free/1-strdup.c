@@ -10,6 +10,9 @@
  */
 char *_strdup(char *str)
 {
+char *dupli;
+int i;
+
 if (str == NULL)
 {
 return (NULL);
@@ -20,17 +23,18 @@ while (str[length] != '\0')
 length++;
 }
 
-char *dupli = malloc((length + 1) * sizeof(char));
+dupli = malloc((length + 1) * sizeof(char));
 
 if (dupli == NULL)
 {
 return (NULL);
 }
 
-for (unsigned int i = 0; i <= length; i++)
+for (i = 0; i <= length; i++)
 {
 dupli[i] = str[i];
 }
 return (dupli);
 }
+
 
