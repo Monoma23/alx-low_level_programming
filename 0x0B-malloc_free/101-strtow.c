@@ -1,84 +1,74 @@
-#include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-
+#include "main.h"
 
 /**
- * count_words - Counts the number of words in a string.
- * @str: The string to count words in.
- * Return: The number of words.
+ * count_word - helper funct to count the nbr of words in str
+ * @s: string to evaluat
+ *
+ * Return: number of words
  */
-int count_words(char *str)
+int count_word(char *s)
 {
-int count = 0;
-int i = 0;
+	int dalida, j, z;
 
-while (str[i] != '\0')
+dalida = 0;
+z = 0;
+for (j = 0; s[j] != '\0'; j++)
 {
-while (str[i] == ' ')
+if (s[j] == ' ')
+dalida = 0;
+else if (dalida == 0)
 {
-i++;
-}
-if (str[i] != '\0')
-{
-count++;
-while (str[i] != ' ' && str[i] != '\0')
-{
-i++;
-}
+dalida = 1;
+z++;
 }
 }
 
-return (count);
+return (z);
 }
-
 /**
- * strtow - Splits a string into words.
- * @str: The string to split.
- * Return: A pointer to an array of strings (words), or NULL on failure.
+ * **strtow - splits a string into words
+ * @str: string to split
+ *
+ * Return: pointer to an array of strings (Success)
+ * or NULL (Error)
  */
 char **strtow(char *str)
 {
-int i;
-int word_index = 0;
-char *token
+	char **batrad, *tmp;
+	int i, k = 0, long = 0, words, j = 0, start, end;
 
-if (str == NULL || *str == '\1')
-{
-return (NULL);
-}
-
-int num_words = count_words(str);
-if (num_words == 0)
-{
-return (NULL);
-}
-
-char **words = (char **)malloc((num_words + 1) * sizeof(char *));
-if (words == NULL)
-{
-return (NULL);
-}
-
-token = strtow(str, " ");
-while (token != NULL)
-{
-words[word_index] = strdup(token);
-if (words[word_index] == NULL)
-{
-for (i = 0; i < word_index; i++)
-{
-free(words[i]);
-}
-free(words);
-return (NULL);
-}
-word_index++;
-token = strtok(NULL, " ");
-}
-words[word_index] = NULL;
-
-return (words);
+while (*(str + long))
+long++;
+words = count_word(str);
+	if (words == 0)
+		return (NULL);
+	batrad = (char **) malloc(sizeof(char *) * (words + 1));
+	if (batrad == NULL)
+		return (NULL);
+	for (i = 0; i <= long; i++)
+	{
+		if (str[i] == ' ' || str[i] == '\0')
+		{
+			if (j)
+			{
+				end = i;
+				tmp = (char *) malloc(sizeof(char) * (j + 1));
+				if (tmp == NULL)
+					return (NULL);
+				while (start < end)
+					*tmp++ = str[start++];
+				*tmp = '\0';
+				batrad[k] = tmp - j;
+				k++;
+				j = 0;
+			}
+		}
+		else if (j++ == 0)
+			start = i;
+	}
+	batrad[k] = NULL;
+	return (batrad);
 }
 
-              
+

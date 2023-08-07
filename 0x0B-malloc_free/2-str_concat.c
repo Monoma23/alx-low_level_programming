@@ -1,51 +1,42 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
-
-
 /**
- * str_concat - Concatenates two strings.
- * @s1: The first string.
- * @s2: The second string.
- * Return: A ptr to the concatenated str or NULL if it fails
+ * str_concat -get ends of inpt and add together
+ * @s1: input one to concat
+ * @s2: input two to concat
+ * Return: concat of s1 and s2
  */
 char *str_concat(char *s1, char *s2)
 {
-int k;
-int len_s1 = 0;
-int len_s2 = 0;
-char *concatenated;
+char *concactained;
+int j, inital;
 if (s1 == NULL)
-{
 s1 = "";
-}
-if (s2 == NULL)
-{
-s2 = "";
-}
+	if (s2 == NULL)
+		s2 = "";
 
-while (s1[len_s1] != '\0')
-{
-len_s1++;
-}
-while (s2[len_s2] != '\0')
-{
-len_s2++;
-}
-concatenated = (char *)malloc((len_s1 + len_s2 + 1) * sizeof(char));
-if (concatenated == NULL)
-{
-return (NULL);
-}
+	j = inital = 0;
+	while (s1[j] != '\0')
+		j++;
+	while (s2[inital] != '\0')
+		inital++;
+	concactained = malloc(sizeof(char) * (j + inital + 1));
 
-for (k = 0; k < len_s1; k++)
-{
-concatenated[k] = s1[k];
-}
-for (int k = 0; k <= len_s2; k++)
-{
-concatenated[len_s1 + k] = s2[k];
-}
-return (concatenated);
-}
+	if (concactained == NULL)
+		return (NULL);
+	j = inital = 0;
+	while (s1[j] != '\0')
+	{
+		concactained[j] = s1[j];
+		j++;
+	}
 
+	while (s2[inital] != '\0')
+	{
+		concactained[j] = s2[inital];
+		j++, inital++;
+	}
+	concactained[j] = '\0';
+	return (concactained);
+}
+j
