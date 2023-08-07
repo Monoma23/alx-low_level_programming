@@ -2,29 +2,29 @@
 #include "main.h"
 
 /**
- * count_word - helper funct to count the nbr of words in str
+ * count_word - helper function to count the nbr of words in a str
  * @s: string to evaluat
  *
- * Return: number of words
+ * Return: number words
  */
 int count_word(char *s)
 {
-	int dalida, j, z;
+	int hiro, bo, wiwi;
 
-dalida = 0;
-z = 0;
-for (j = 0; s[j] != '\0'; j++)
-{
-if (s[j] == ' ')
-dalida = 0;
-else if (dalida == 0)
-{
-dalida = 1;
-z++;
-}
-}
+	hiro = 0;
+	wiwi = 0;
 
-return (z);
+	for (bo = 0; s[bo] != '\0'; bo++)
+	{
+		if (s[bo] == ' ')
+			hiro = 0;
+		else if (hiro == 0)
+		{
+			hiro = 1;
+			wiwi++;
+		}
+	}
+	return (wiwi);
 }
 /**
  * **strtow - splits a string into words
@@ -35,40 +35,40 @@ return (z);
  */
 char **strtow(char *str)
 {
-	char **batrad, *tmp;
-	int i, k = 0, long = 0, words, j = 0, start, end;
+	char **matrix, *tmp;
+	int i, k = 0, len = 0, words, bo = 0, start, end;
 
-while (*(str + long))
-long++;
-words = count_word(str);
+	while (*(str + len))
+		len++;
+	words = count_word(str);
 	if (words == 0)
 		return (NULL);
-	batrad = (char **) malloc(sizeof(char *) * (words + 1));
-	if (batrad == NULL)
+	matrix = (char **) malloc(sizeof(char *) * (words + 1));
+	if (matrix == NULL)
 		return (NULL);
-	for (i = 0; i <= long; i++)
+	for (i = 0; i <= len; i++)
 	{
 		if (str[i] == ' ' || str[i] == '\0')
 		{
-			if (j)
+			if (bo)
 			{
 				end = i;
-				tmp = (char *) malloc(sizeof(char) * (j + 1));
+				tmp = (char *) malloc(sizeof(char) * (bo + 1));
 				if (tmp == NULL)
 					return (NULL);
 				while (start < end)
 					*tmp++ = str[start++];
 				*tmp = '\0';
-				batrad[k] = tmp - j;
+				matrix[k] = tmp - bo;
 				k++;
-				j = 0;
+				bo = 0;
 			}
 		}
-		else if (j++ == 0)
+		else if (bo++ == 0)
 			start = i;
 	}
-	batrad[k] = NULL;
-	return (batrad);
+	matrix[k] = NULL;
+	return (matrix);
 }
 
 

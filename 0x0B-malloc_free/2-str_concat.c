@@ -39,4 +39,3 @@ s1 = "";
 	concactained[j] = '\0';
 	return (concactained);
 }
-j
