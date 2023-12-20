@@ -1,4 +1,8 @@
-all: build_executable
+# 0-Makefile
 
-build_executable:
-	gcc main.c school.c -o school
+NAME = school
+
+all: $(NAME)
+
+$(NAME): main.c school.c
+	gcc main.c school.c -o $(NAME)
